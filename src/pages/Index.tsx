@@ -3,8 +3,27 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const Index = () => {
+  const candyImages = [
+    {
+      url: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
+      alt: "Round candies assortment",
+      title: "Classic Round Candies"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1",
+      alt: "Shaped candies collection",
+      title: "Shaped Candies"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+      alt: "Orange flavored candies",
+      title: "Orange Delights"
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -16,12 +35,29 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card className="col-span-full lg:col-span-2">
             <CardHeader>
-              <CardTitle>Featured Content</CardTitle>
+              <CardTitle>Featured Candies</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                <p className="text-muted-foreground">Featured Content Area</p>
-              </div>
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {candyImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative aspect-video">
+                        <img 
+                          src={image.url} 
+                          alt={image.alt}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white rounded-b-lg">
+                          <h3 className="text-xl font-semibold">{image.title}</h3>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </CardContent>
           </Card>
 
