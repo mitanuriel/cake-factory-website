@@ -26,17 +26,17 @@ const Index = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-gradient-to-b from-[#FDE1D3] to-[#FFDEE2]">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-primary mb-2">Welcome to the Cake Factory</h1>
-          <p className="text-muted-foreground">Where your sweetest dreams come true</p>
+          <h1 className="text-4xl font-bold text-[#8B5CF6] mb-2">Welcome to the Cake Factory</h1>
+          <p className="text-[#D946EF]">Where your sweetest dreams come true</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="col-span-full lg:col-span-2">
+          <Card className="col-span-full lg:col-span-2 bg-white/80 backdrop-blur-sm border border-[#FEC6A1]">
             <CardHeader>
-              <CardTitle>Featured Candies</CardTitle>
+              <CardTitle className="text-[#8B5CF6]">Featured Candies</CardTitle>
             </CardHeader>
             <CardContent>
               <Carousel className="w-full">
@@ -49,7 +49,7 @@ const Index = () => {
                           alt={image.alt}
                           className="w-full h-full object-cover rounded-lg"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white rounded-b-lg">
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#8B5CF6]/60 to-transparent text-white rounded-b-lg">
                           <h3 className="text-xl font-semibold">{image.title}</h3>
                         </div>
                       </div>
@@ -62,53 +62,53 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="col-span-full lg:col-span-1">
+          <Card className="col-span-full lg:col-span-1 bg-white/80 backdrop-blur-sm border border-[#FEC6A1]">
             <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
+              <CardTitle className="text-[#8B5CF6]">Quick Actions</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <Button className="w-full">Create New</Button>
-                <Button variant="outline" className="w-full">View Reports</Button>
-                <Button variant="secondary" className="w-full">Settings</Button>
+                <Button className="w-full bg-[#F97316] hover:bg-[#F97316]/90">Order a Cake</Button>
+                <Button variant="outline" className="w-full border-[#FEC6A1] text-[#8B5CF6] hover:bg-[#FEC6A1]/10">View Reports</Button>
+                <Button variant="secondary" className="w-full bg-[#E5DEFF] text-[#8B5CF6] hover:bg-[#E5DEFF]/80">Settings</Button>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="col-span-full md:col-span-1">
+          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#FEC6A1]">
             <CardHeader>
-              <CardTitle>Recent Items</CardTitle>
+              <CardTitle className="text-[#8B5CF6]">Recent Items</CardTitle>
             </CardHeader>
             <CardContent>
               <ScrollArea className="h-[300px] pr-4">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <div key={item} className="mb-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded bg-muted flex items-center justify-center">
+                      <div className="w-12 h-12 rounded bg-[#E5DEFF] flex items-center justify-center text-[#8B5CF6]">
                         {item}
                       </div>
                       <div>
-                        <h3 className="font-medium">Item {item}</h3>
-                        <p className="text-sm text-muted-foreground">Description</p>
+                        <h3 className="font-medium text-[#8B5CF6]">Item {item}</h3>
+                        <p className="text-sm text-[#D946EF]">Description</p>
                       </div>
                     </div>
-                    {item < 5 && <Separator className="my-4" />}
+                    {item < 5 && <Separator className="my-4 bg-[#FEC6A1]" />}
                   </div>
                 ))}
               </ScrollArea>
             </CardContent>
           </Card>
 
-          <Card className="col-span-full md:col-span-1">
+          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#FEC6A1]">
             <CardHeader>
-              <CardTitle>Search</CardTitle>
+              <CardTitle className="text-[#8B5CF6]">Search</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <Input 
                   type="search" 
                   placeholder="Search items..." 
-                  className="w-full"
+                  className="w-full border-[#FEC6A1] focus:ring-[#8B5CF6]"
                 />
                 <div className="flex flex-wrap gap-2">
                   {['Recent', 'Popular', 'Trending'].map((tag) => (
@@ -116,7 +116,7 @@ const Index = () => {
                       key={tag} 
                       variant="secondary" 
                       size="sm"
-                      className="text-sm"
+                      className="text-sm bg-[#E5DEFF] text-[#8B5CF6] hover:bg-[#E5DEFF]/80"
                     >
                       {tag}
                     </Button>
@@ -126,34 +126,34 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="col-span-full md:col-span-1">
+          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#FEC6A1]">
             <CardHeader>
-              <CardTitle>Statistics</CardTitle>
+              <CardTitle className="text-[#8B5CF6]">Statistics</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-primary/10 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Total Views</p>
-                  <p className="text-2xl font-bold">12.5K</p>
+                <div className="p-4 bg-[#E5DEFF] rounded-lg">
+                  <p className="text-sm text-[#D946EF]">Total Views</p>
+                  <p className="text-2xl font-bold text-[#8B5CF6]">12.5K</p>
                 </div>
-                <div className="p-4 bg-primary/10 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Engagement</p>
-                  <p className="text-2xl font-bold">8.2K</p>
+                <div className="p-4 bg-[#E5DEFF] rounded-lg">
+                  <p className="text-sm text-[#D946EF]">Engagement</p>
+                  <p className="text-2xl font-bold text-[#8B5CF6]">8.2K</p>
                 </div>
-                <div className="p-4 bg-primary/10 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Conversions</p>
-                  <p className="text-2xl font-bold">2.4K</p>
+                <div className="p-4 bg-[#E5DEFF] rounded-lg">
+                  <p className="text-sm text-[#D946EF]">Conversions</p>
+                  <p className="text-2xl font-bold text-[#8B5CF6]">2.4K</p>
                 </div>
-                <div className="p-4 bg-primary/10 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Growth</p>
-                  <p className="text-2xl font-bold">+24%</p>
+                <div className="p-4 bg-[#E5DEFF] rounded-lg">
+                  <p className="text-sm text-[#D946EF]">Growth</p>
+                  <p className="text-2xl font-bold text-[#8B5CF6]">+24%</p>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <footer className="mt-12 text-center text-muted-foreground">
+        <footer className="mt-12 text-center text-[#D946EF]">
           <p>&copy; 2024 Your Application. All rights reserved.</p>
         </footer>
       </div>
