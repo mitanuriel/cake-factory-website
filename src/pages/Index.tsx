@@ -10,8 +10,8 @@ const Index = () => {
   const candyImages = [
     {
       url: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
-      alt: "Round candies assortment",
-      title: "Classic Round Candies"
+      alt: "Birthday cakes assortment",
+      title: "Classic Birthday Cakes"
     },
     {
       url: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1",
@@ -36,7 +36,7 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card className="col-span-full lg:col-span-2 bg-white/80 backdrop-blur-sm border border-[#FEC6A1]">
             <CardHeader>
-              <CardTitle className="text-[#8B5CF6]">Featured Candies</CardTitle>
+              <CardTitle className="text-[#8B5CF6]">Featured Cakes</CardTitle>
             </CardHeader>
             <CardContent>
               <Carousel className="w-full">
@@ -69,7 +69,7 @@ const Index = () => {
             <CardContent>
               <div className="space-y-4">
                 <Button className="w-full bg-[#F97316] hover:bg-[#F97316]/90">Order a Cake</Button>
-                <Button variant="outline" className="w-full border-[#FEC6A1] text-[#8B5CF6] hover:bg-[#FEC6A1]/10">View Reports</Button>
+                <Button variant="outline" className="w-full border-[#FEC6A1] text-[#8B5CF6] hover:bg-[#FEC6A1]/10">View Orders</Button>
                 <Button variant="secondary" className="w-full bg-[#E5DEFF] text-[#8B5CF6] hover:bg-[#E5DEFF]/80">Settings</Button>
               </div>
             </CardContent>
@@ -154,7 +154,7 @@ const Index = () => {
         </div>
 
         <footer className="mt-12 text-center text-[#D946EF]">
-          <p>&copy; 2024 Your Application. All rights reserved.</p>
+          <p>&copy; 2025 Cake Factory. All rights reserved.</p>
         </footer>
       </div>
     </main>
