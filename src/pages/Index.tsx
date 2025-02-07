@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -28,8 +29,8 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-primary mb-2">Welcome to our candy shop</h1>
-          <p className="text-muted-foreground">Discover our modern application</p>
+          <h1 className="text-4xl font-bold text-primary mb-2">Welcome to the Cake Factory</h1>
+          <p className="text-muted-foreground">Where your sweetest dreams come true</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
