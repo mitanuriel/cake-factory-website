@@ -9,12 +9,11 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-primary mb-2">Welcome</h1>
+          <h1 className="text-4xl font-bold text-primary mb-2">Welcome to our candy shop</h1>
           <p className="text-muted-foreground">Discover our modern application</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Featured Section */}
           <Card className="col-span-full lg:col-span-2">
             <CardHeader>
               <CardTitle>Featured Content</CardTitle>
@@ -26,7 +25,6 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          {/* Quick Actions */}
           <Card className="col-span-full lg:col-span-1">
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
@@ -40,7 +38,6 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          {/* Recent Items */}
           <Card className="col-span-full md:col-span-1">
             <CardHeader>
               <CardTitle>Recent Items</CardTitle>
@@ -65,7 +62,6 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          {/* Search Section */}
           <Card className="col-span-full md:col-span-1">
             <CardHeader>
               <CardTitle>Search</CardTitle>
@@ -93,7 +89,6 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          {/* Stats Section */}
           <Card className="col-span-full md:col-span-1">
             <CardHeader>
               <CardTitle>Statistics</CardTitle>
@@ -121,7 +116,6 @@ const Index = () => {
           </Card>
         </div>
 
-        {/* Footer Section */}
         <footer className="mt-12 text-center text-muted-foreground">
           <p>&copy; 2024 Your Application. All rights reserved.</p>
         </footer>
