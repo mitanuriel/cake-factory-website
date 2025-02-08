@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,9 +9,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [orderDetails, setOrderDetails] = useState({
     cakeType: "",
     email: "",
@@ -178,7 +179,9 @@ const Index = () => {
                     </form>
                   </SheetContent>
                 </Sheet>
-                <Button variant="outline" className="w-full border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10">View Orders</Button>
+                <Button variant="outline" className="w-full border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10" onClick={() => navigate('/view-orders')}>
+                  View Orders
+                </Button>
                 <Button variant="secondary" className="w-full bg-[#457B9D] text-[#F1FAEE] hover:bg-[#457B9D]/80">Settings</Button>
               </div>
             </CardContent>
