@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
@@ -20,6 +20,25 @@ const Index = () => {
     phone: "",
     specifications: ""
   });
+
+  useEffect(() => {
+    const loadFont = async () => {
+      const font = new FontFace(
+        'Cookie',
+        'url(https://fonts.gstatic.com/s/cookie/v17/syky-y18lb0tSbf9kgqS.woff2)'
+      );
+
+      try {
+        await font.load();
+        document.fonts.add(font);
+        console.log('Cookie font loaded successfully');
+      } catch (error) {
+        console.error('Error loading Cookie font:', error);
+      }
+    };
+
+    loadFont();
+  }, []);
 
   const candyImages = [
     {
@@ -67,8 +86,8 @@ const Index = () => {
     <main className="min-h-screen bg-gradient-to-b from-[#F1FAEE] to-[#A8DADC]">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8 text-center">
-          <h1 className="text-5xl font-cookie text-[#1D3557] mb-4">Welcome to the Cake Factory</h1>
-          <p className="text-xl font-cookie text-[#457B9D]">Where your sweetest dreams come true</p>
+          <h1 className="text-5xl font-cookie text-[#1D3557] mb-4" style={{ fontFamily: 'Cookie, cursive' }}>Welcome to the Cake Factory</h1>
+          <p className="text-xl font-cookie text-[#457B9D]" style={{ fontFamily: 'Cookie, cursive' }}>Where your sweetest dreams come true</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -81,14 +100,15 @@ const Index = () => {
                 <CarouselContent>
                   {candyImages.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative aspect-video">
+                      <div className="relative aspect-video group">
                         <img 
                           src={image.url} 
                           alt={image.alt}
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1D3557]/60 to-transparent text-white rounded-b-lg">
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#1D3557]/80 to-transparent text-white rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <h3 className="text-xl font-semibold">{image.title}</h3>
+                          <p className="text-sm mt-1">{image.alt}</p>
                         </div>
                       </div>
                     </CarouselItem>
@@ -240,4 +260,3 @@ const Index = () => {
 };
 
 export default Index;
-
