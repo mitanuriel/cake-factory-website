@@ -44,35 +44,35 @@ const ViewOrders = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#F1FAEE] to-[#A8DADC] p-8">
-      <div className="max-w-5xl mx-auto mb-6">
+    <div className="min-h-screen bg-gradient-to-b from-[#E5DEFF] to-[#d299c2]">
+      <div className="max-w-5xl mx-auto mb-6 pt-8 px-8">
         <Button 
           onClick={() => navigate('/')} 
           variant="outline" 
-          className="bg-white/80 border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10"
+          className="bg-white/80 border-[#d299c2] text-[#1D3557] hover:bg-[#E5DEFF]/10"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home
         </Button>
       </div>
 
-      <Card className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm">
+      <Card className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm m-8">
         <CardHeader>
-          <CardTitle className="text-3xl font-cookie text-[#1D3557]">Your Orders</CardTitle>
+          <CardTitle className="text-3xl font-cookie text-[#1D3557]" style={{ fontFamily: 'Cookie, cursive' }}>Your Orders</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Item</TableHead>
-                <TableHead>Details</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead className="font-cookie text-xl" style={{ fontFamily: 'Cookie, cursive' }}>Item</TableHead>
+                <TableHead className="font-cookie text-xl" style={{ fontFamily: 'Cookie, cursive' }}>Details</TableHead>
+                <TableHead className="font-cookie text-xl" style={{ fontFamily: 'Cookie, cursive' }}>Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {orders.map((order) => (
                 <TableRow key={order.id}>
-                  <TableCell className="font-medium">{order.name}</TableCell>
+                  <TableCell className="font-cookie text-lg" style={{ fontFamily: 'Cookie, cursive' }}>{order.name}</TableCell>
                   <TableCell>
                     <div className="space-y-2">
                       <p className="text-sm text-gray-700">{order.description}</p>

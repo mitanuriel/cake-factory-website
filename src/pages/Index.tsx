@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -83,7 +82,7 @@ const Index = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#F1FAEE] to-[#A8DADC]">
+    <main className="min-h-screen bg-gradient-to-b from-[#E5DEFF] to-[#d299c2]">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8 text-center">
           <h1 className="text-5xl font-cookie text-[#1D3557] mb-4" style={{ fontFamily: 'Cookie, cursive' }}>Welcome to the Cake Factory</h1>
@@ -91,9 +90,9 @@ const Index = () => {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="col-span-full md:col-span-2 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
+          <Card className="col-span-full md:col-span-2 bg-white/80 backdrop-blur-sm border border-[#d299c2]">
             <CardHeader>
-              <CardTitle className="text-[#1D3557]">Featured Cakes</CardTitle>
+              <CardTitle className="text-[#1D3557] font-cookie text-3xl" style={{ fontFamily: 'Cookie, cursive' }}>Featured Cakes</CardTitle>
             </CardHeader>
             <CardContent>
               <Carousel className="w-full">
@@ -120,21 +119,21 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
+          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#d299c2]">
             <CardHeader>
-              <CardTitle className="text-[#1D3557]">Quick Actions</CardTitle>
+              <CardTitle className="text-[#1D3557] font-cookie text-3xl" style={{ fontFamily: 'Cookie, cursive' }}>Quick Actions</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <Sheet>
                   <SheetTrigger asChild>
-                    <Button className="w-full bg-[#E63946] hover:bg-[#E63946]/90 text-[#F1FAEE]">
+                    <Button className="w-full bg-[#d299c2] hover:bg-[#d299c2]/90 text-white">
                       Order a Cake
                     </Button>
                   </SheetTrigger>
                   <SheetContent className="w-full sm:max-w-[500px]">
                     <SheetHeader>
-                      <SheetTitle className="text-[#1D3557]">Place Your Order</SheetTitle>
+                      <SheetTitle className="text-[#1D3557] font-cookie text-3xl" style={{ fontFamily: 'Cookie, cursive' }}>Place Your Order</SheetTitle>
                       <SheetDescription>
                         Fill in the details below to order your custom cake.
                       </SheetDescription>
@@ -165,7 +164,7 @@ const Index = () => {
                           placeholder="your@email.com"
                           value={orderDetails.email}
                           onChange={(e) => setOrderDetails({...orderDetails, email: e.target.value})}
-                          className="border-[#A8DADC]"
+                          className="border-[#d299c2]"
                         />
                       </div>
 
@@ -176,7 +175,7 @@ const Index = () => {
                           placeholder="Your phone number"
                           value={orderDetails.phone}
                           onChange={(e) => setOrderDetails({...orderDetails, phone: e.target.value})}
-                          className="border-[#A8DADC]"
+                          className="border-[#d299c2]"
                         />
                       </div>
 
@@ -186,7 +185,7 @@ const Index = () => {
                           placeholder="Tell us about your dream cake! Include details about size, flavors, decorations, or any special requirements."
                           value={orderDetails.specifications}
                           onChange={(e) => setOrderDetails({...orderDetails, specifications: e.target.value})}
-                          className="min-h-[100px] border-[#A8DADC]"
+                          className="min-h-[100px] border-[#d299c2]"
                         />
                       </div>
 
@@ -199,16 +198,20 @@ const Index = () => {
                     </form>
                   </SheetContent>
                 </Sheet>
-                <Button variant="outline" className="w-full border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10" onClick={() => navigate('/view-orders')}>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-[#d299c2] text-[#1D3557] hover:bg-[#E5DEFF]/10" 
+                  onClick={() => navigate('/view-orders')}
+                >
                   View Orders
                 </Button>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
+          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#d299c2]">
             <CardHeader>
-              <CardTitle className="text-[#1D3557]">Contact Us</CardTitle>
+              <CardTitle className="text-[#1D3557] font-cookie text-3xl" style={{ fontFamily: 'Cookie, cursive' }}>Contact Us</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
