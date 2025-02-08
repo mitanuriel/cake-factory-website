@@ -5,8 +5,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
+  const { toast } = useToast();
+  const [orderDetails, setOrderDetails] = useState({
+    cakeType: "",
+    email: "",
+    phone: "",
+    specifications: ""
+  });
+
   const candyImages = [
     {
       url: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
@@ -25,12 +38,36 @@ const Index = () => {
     }
   ];
 
+  const handleSubmitOrder = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!orderDetails.cakeType || !orderDetails.email || !orderDetails.phone) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Please fill in all required fields",
+      });
+      return;
+    }
+    
+    toast({
+      title: "Order Submitted!",
+      description: "We'll contact you soon about your order.",
+    });
+    
+    setOrderDetails({
+      cakeType: "",
+      email: "",
+      phone: "",
+      specifications: ""
+    });
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#F1FAEE] to-[#A8DADC]">
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8 text-center">
-          <h1 className="text-5xl font-bold text-[#1D3557] mb-4">Welcome to the Cake Factory</h1>
-          <p className="text-xl text-[#457B9D]">Where your sweetest dreams come true</p>
+          <h1 className="text-5xl font-cookie text-[#1D3557] mb-4">Welcome to the Cake Factory</h1>
+          <p className="text-xl font-cookie text-[#457B9D]">Where your sweetest dreams come true</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,7 +105,79 @@ const Index = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <Button className="w-full bg-[#E63946] hover:bg-[#E63946]/90 text-[#F1FAEE]">Order a Cake</Button>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button className="w-full bg-[#E63946] hover:bg-[#E63946]/90 text-[#F1FAEE]">
+                      Order a Cake
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent className="w-full sm:max-w-[500px]">
+                    <SheetHeader>
+                      <SheetTitle className="text-[#1D3557]">Place Your Order</SheetTitle>
+                      <SheetDescription>
+                        Fill in the details below to order your custom cake.
+                      </SheetDescription>
+                    </SheetHeader>
+                    <form onSubmit={handleSubmitOrder} className="space-y-6 mt-6">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#1D3557]">Cake Type</label>
+                        <Select
+                          value={orderDetails.cakeType}
+                          onValueChange={(value) => setOrderDetails({...orderDetails, cakeType: value})}
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select cake type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="birthday">Birthday Cake</SelectItem>
+                            <SelectItem value="wedding">Wedding Cake</SelectItem>
+                            <SelectItem value="cupcakes">Cupcakes</SelectItem>
+                            <SelectItem value="custom">Custom Cake</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#1D3557]">Email</label>
+                        <Input
+                          type="email"
+                          placeholder="your@email.com"
+                          value={orderDetails.email}
+                          onChange={(e) => setOrderDetails({...orderDetails, email: e.target.value})}
+                          className="border-[#A8DADC]"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#1D3557]">Phone Number</label>
+                        <Input
+                          type="tel"
+                          placeholder="Your phone number"
+                          value={orderDetails.phone}
+                          onChange={(e) => setOrderDetails({...orderDetails, phone: e.target.value})}
+                          className="border-[#A8DADC]"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#1D3557]">Specifications</label>
+                        <Textarea
+                          placeholder="Tell us about your dream cake! Include details about size, flavors, decorations, or any special requirements."
+                          value={orderDetails.specifications}
+                          onChange={(e) => setOrderDetails({...orderDetails, specifications: e.target.value})}
+                          className="min-h-[100px] border-[#A8DADC]"
+                        />
+                      </div>
+
+                      <Button 
+                        type="submit"
+                        className="w-full bg-[#457B9D] hover:bg-[#457B9D]/90 text-white"
+                      >
+                        Submit Order
+                      </Button>
+                    </form>
+                  </SheetContent>
+                </Sheet>
                 <Button variant="outline" className="w-full border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10">View Orders</Button>
                 <Button variant="secondary" className="w-full bg-[#457B9D] text-[#F1FAEE] hover:bg-[#457B9D]/80">Settings</Button>
               </div>
