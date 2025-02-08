@@ -14,14 +14,14 @@ const Index = () => {
       title: "Classic Birthday Cakes"
     },
     {
-      url: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1",
-      alt: "Shaped candies collection",
-      title: "Shaped Candies"
+      url: "https://images.unsplash.com/photo-1535254973040-607b474cb50d",
+      alt: "Wedding cakes collection",
+      title: "Classic Wedding cakes"
     },
     {
-      url: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-      alt: "Orange flavored candies",
-      title: "Orange Delights"
+      url: "https://images.unsplash.com/photo-1599785209796-786432b228bc",
+      alt: "Delicious cupcakes",
+      title: "Delicious cupcakes"
     }
   ];
 
