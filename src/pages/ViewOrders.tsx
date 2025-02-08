@@ -2,8 +2,13 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const ViewOrders = () => {
+  const navigate = useNavigate();
+
   const orders = [
     {
       id: 1,
@@ -40,6 +45,17 @@ const ViewOrders = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F1FAEE] to-[#A8DADC] p-8">
+      <div className="max-w-5xl mx-auto mb-6">
+        <Button 
+          onClick={() => navigate('/')} 
+          variant="outline" 
+          className="bg-white/80 border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Home
+        </Button>
+      </div>
+
       <Card className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-3xl font-cookie text-[#1D3557]">Your Orders</CardTitle>
