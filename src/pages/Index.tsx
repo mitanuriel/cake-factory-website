@@ -28,9 +28,9 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#F1FAEE] to-[#A8DADC]">
       <div className="container mx-auto px-4 py-8">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold text-[#1D3557] mb-2">Welcome to the Cake Factory</h1>
-          <p className="text-[#457B9D]">Where your sweetest dreams come true</p>
+        <header className="mb-8 text-center">
+          <h1 className="text-5xl font-bold text-[#1D3557] mb-4">Welcome to the Cake Factory</h1>
+          <p className="text-xl text-[#457B9D]">Where your sweetest dreams come true</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
