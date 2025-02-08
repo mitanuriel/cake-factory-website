@@ -1,8 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 const Index = () => {
   const { toast } = useToast();
@@ -71,8 +71,8 @@ const Index = () => {
           <p className="text-xl font-cookie text-[#457B9D]">Where your sweetest dreams come true</p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="col-span-full lg:col-span-2 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="col-span-full md:col-span-2 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
             <CardHeader>
               <CardTitle className="text-[#1D3557]">Featured Cakes</CardTitle>
             </CardHeader>
@@ -100,7 +100,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card className="col-span-full lg:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
+          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
             <CardHeader>
               <CardTitle className="text-[#1D3557]">Quick Actions</CardTitle>
             </CardHeader>
@@ -182,83 +182,49 @@ const Index = () => {
                 <Button variant="outline" className="w-full border-[#A8DADC] text-[#1D3557] hover:bg-[#A8DADC]/10" onClick={() => navigate('/view-orders')}>
                   View Orders
                 </Button>
-                <Button variant="secondary" className="w-full bg-[#457B9D] text-[#F1FAEE] hover:bg-[#457B9D]/80">Settings</Button>
               </div>
             </CardContent>
           </Card>
 
           <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
             <CardHeader>
-              <CardTitle className="text-[#1D3557]">Recent Items</CardTitle>
+              <CardTitle className="text-[#1D3557]">Contact Us</CardTitle>
             </CardHeader>
             <CardContent>
-              <ScrollArea className="h-[300px] pr-4">
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <div key={item} className="mb-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded bg-[#A8DADC] flex items-center justify-center text-[#1D3557]">
-                        {item}
-                      </div>
-                      <div>
-                        <h3 className="font-medium text-[#1D3557]">Item {item}</h3>
-                        <p className="text-sm text-[#457B9D]">Description</p>
-                      </div>
-                    </div>
-                    {item < 5 && <Separator className="my-4 bg-[#A8DADC]" />}
+              <div className="space-y-6">
+                <div className="flex items-start space-x-3">
+                  <Phone className="h-5 w-5 text-[#457B9D] mt-1" />
+                  <div>
+                    <h3 className="font-medium text-[#1D3557]">Phone</h3>
+                    <p className="text-[#457B9D]">(555) 123-4567</p>
                   </div>
-                ))}
-              </ScrollArea>
-            </CardContent>
-          </Card>
-
-          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
-            <CardHeader>
-              <CardTitle className="text-[#1D3557]">Search</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <Input 
-                  type="search" 
-                  placeholder="Search items..." 
-                  className="w-full border-[#A8DADC] focus:ring-[#457B9D]"
-                />
-                <div className="flex flex-wrap gap-2">
-                  {['Recent', 'Popular', 'Trending'].map((tag) => (
-                    <Button 
-                      key={tag} 
-                      variant="secondary" 
-                      size="sm"
-                      className="text-sm bg-[#457B9D] text-[#F1FAEE] hover:bg-[#457B9D]/80"
-                    >
-                      {tag}
-                    </Button>
-                  ))}
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="col-span-full md:col-span-1 bg-white/80 backdrop-blur-sm border border-[#A8DADC]">
-            <CardHeader>
-              <CardTitle className="text-[#1D3557]">Statistics</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-[#A8DADC] rounded-lg">
-                  <p className="text-sm text-[#1D3557]">Total Views</p>
-                  <p className="text-2xl font-bold text-[#1D3557]">12.5K</p>
+                
+                <div className="flex items-start space-x-3">
+                  <Mail className="h-5 w-5 text-[#457B9D] mt-1" />
+                  <div>
+                    <h3 className="font-medium text-[#1D3557]">Email</h3>
+                    <p className="text-[#457B9D]">info@cakefactory.com</p>
+                  </div>
                 </div>
-                <div className="p-4 bg-[#A8DADC] rounded-lg">
-                  <p className="text-sm text-[#1D3557]">Engagement</p>
-                  <p className="text-2xl font-bold text-[#1D3557]">8.2K</p>
+                
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-[#457B9D] mt-1" />
+                  <div>
+                    <h3 className="font-medium text-[#1D3557]">Address</h3>
+                    <p className="text-[#457B9D]">123 Baker Street</p>
+                    <p className="text-[#457B9D]">Sweet Valley, CA 90210</p>
+                  </div>
                 </div>
-                <div className="p-4 bg-[#A8DADC] rounded-lg">
-                  <p className="text-sm text-[#1D3557]">Conversions</p>
-                  <p className="text-2xl font-bold text-[#1D3557]">2.4K</p>
-                </div>
-                <div className="p-4 bg-[#A8DADC] rounded-lg">
-                  <p className="text-sm text-[#1D3557]">Growth</p>
-                  <p className="text-2xl font-bold text-[#1D3557]">+24%</p>
+                
+                <div className="flex items-start space-x-3">
+                  <Clock className="h-5 w-5 text-[#457B9D] mt-1" />
+                  <div>
+                    <h3 className="font-medium text-[#1D3557]">Opening Hours</h3>
+                    <p className="text-[#457B9D]">Monday - Friday: 8:00 AM - 7:00 PM</p>
+                    <p className="text-[#457B9D]">Saturday: 9:00 AM - 5:00 PM</p>
+                    <p className="text-[#457B9D]">Sunday: Closed</p>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -274,3 +240,4 @@ const Index = () => {
 };
 
 export default Index;
+
